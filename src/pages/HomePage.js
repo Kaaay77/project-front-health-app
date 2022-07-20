@@ -6,13 +6,13 @@ import laboratorioClinico from "../images/Laboratorio-clinico.svg"
 import ocupacional from "../images/Ocupacional.svg"
 import HomePageCss from "./HomePage.css"
 import  Carousel  from "../components/carousel"
+// import TwitterIcon from "../components/TwitterIcon"
 
 
 function HomePage() {
   return (
     <>
-      <div className="header">
-      <h1>Holi</h1>
+      <div className="header">      
       </div>
       <div className="caruselhome">
       <Carousel />
@@ -32,7 +32,7 @@ function HomePage() {
           <img src={laboratorioClinico} alt="laboratorioClinico" />
         </div>
           <p>Contamos con equipos de última generación y personal capacitado para la realización de exámenes de rutina y pruebas especializadas</p>
-        <button>Laboratorio</button>
+        <Link to="/laboratorio" style={{textDecoration: "none"}}> <button style={{border: "none"}}>Laboratorio</button> </Link>
         
         </section>
 
@@ -41,7 +41,7 @@ function HomePage() {
           <img src={ocupacional} alt="ocupacional"/>
         </div>
           <p>Ayudamos a las empresas a ofrecer el cuidado necesario que sus empleados merecen, dando apoyo para el cumplimiento de LOPCYMAT.</p>
-          <button>Ocupacional</button>
+          <Link to="/ocupacional" style={{textDecoration: "none"}}> <button style={{border: "none"}}>Ocupacional</button> </Link>
         </section>
 
         <section className="carta">
@@ -49,7 +49,8 @@ function HomePage() {
             <img src={fertilidad} alt="fertilidad"/>
           </div>
           <p>Utilizamos tecnologías de avanzada para la reproducción asistida in-vitro, ayudando a miles de familias a crecer y formar nuevas vidas.</p>
-          <button>Fertilidad</button>
+        <Link to="/fertilidad" style={{textDecoration: "none"}}> <button style={{border: "none"}}>Fertilidad</button> </Link>
+
         </section>
         
         <section className="carta">
@@ -57,10 +58,11 @@ function HomePage() {
             <img src={dermatologia} alt="dermatologia"/>
           </div>
             <p>Contamos con equipos de fototerapia y dermatólogos para el tratamiento de afecciones de la piel como el vitiligo y la psoriasis, entre otras.</p>
-            <button>Dermatologia</button>
+            <Link to="/dermatologia" style={{textDecoration: "none"}}> <button style={{border: "none"}}>Dermatologia</button> </Link>
+            
         </section>
       </div>
-        
+      {/* <TwitterIcon /> */}
       </div>
     </>
   );
