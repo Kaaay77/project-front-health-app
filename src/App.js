@@ -1,10 +1,9 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import HomePage from './pages/HomePage';
 import ProjectListPage from './pages/ProjectListPage';
 import ProjectDetailsPage from './pages/ProjectDetailsPage';
-
+import HomePage from './pages/HomePage'
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import PrivateRoute from './components/PrivateRoute'; 
@@ -16,17 +15,44 @@ function App() {
 			<Navbar />
 
 			<Routes>
-				<Route exact path="/" component={HomePage} />
-				<Route
+				<Route exact path="/" element={<HomePage/>} />
+				{/* <Route
+						exact
+						path="/sobre-nosotros"
+						element={
+							<PrivateRoute>
+								<AboutUs />
+							</PrivateRoute>
+						}
+					/> */}
+				{/* <Route
 					exact
-					path="/projects"
+					path="/servicios"
 					element={
 						<PrivateRoute>
-							<ProjectListPage />
+							<Services />
 						</PrivateRoute>
 					}
-				/>
-
+				/> */}
+				{/* <Route
+					exact
+					path="carrito"
+					element={
+						<PrivateRoute>
+							<Basket />
+						</PrivateRoute>
+					}
+				/> */}
+				{/* <Route
+					exact
+					path="perfil"
+					element={
+						<PrivateRoute>
+							<Profile />
+						</PrivateRoute>
+					}
+				/> */}
+				
 				<Route
 					exact
 					path="/projects/:id"
