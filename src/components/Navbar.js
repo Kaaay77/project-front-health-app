@@ -3,6 +3,8 @@ import { useContext } from "react";                       // <== IMPORT
 import { AuthContext } from "./../context/auth.context";  // <== IMPORT
 import logo from "../images/logo-izerh-02.svg"
 import NavBar from "./NavBar.css"
+import { FiShoppingCart } from 'react-icons/fi';
+
 
 function Navbar() {
   // Subscribe to the AuthContext to gain access to
@@ -20,15 +22,15 @@ function Navbar() {
       <div className="links">
 
       <Link to="/sobre-nosotros" style={{textDecoration: "none"}}>
-        <b>Sobre Nosotros</b>
+        <span>Sobre Nosotros</span>
       </Link>
 
       <Link to="/servicios" style={{textDecoration: "none"}}>
-        <b>Servicios</b>
+        <span>Servicios</span>
       </Link>
 
       <Link to="/carrito" style={{textDecoration: "none"}}>
-        🛒
+        <h3><FiShoppingCart/></h3>
       </Link>
       </div>
       <div className="loged">

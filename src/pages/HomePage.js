@@ -62,7 +62,6 @@ function HomePage() {
             
         </section>
       </div>
-      {/* <TwitterIcon /> */}
       </div>
     </>
   );

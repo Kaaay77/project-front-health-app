@@ -7,7 +7,8 @@ import HomePage from './pages/HomePage'
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import PrivateRoute from './components/PrivateRoute'; 
-import AnonRoute from './components/AnonRoute'; 
+import AnonRoute from './components/AnonRoute';
+import Footer from "./components/Footer" 
 
 function App() {
 	return (
@@ -82,6 +83,7 @@ function App() {
 					}
 				/>
 			</Routes>
+			<Footer />
 		</div>
 	);
 }
