@@ -40,8 +40,9 @@ function Navbar() {
             <Link to="/perfil" style={{textDecoration: "none"}}>
               <button>Perfil</button>
             </Link>
-            
+            <Link to="" style={{textDecoration: "none"}}>
             <button onClick={logOutUser}>Logout</button>
+            </Link>
           </>)
         : 
         (<>
