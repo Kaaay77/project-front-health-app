@@ -59,8 +59,8 @@ section > p {
 .caruselhome{
     width: 100%;
     height: 50vw;
+    margin-top: 5vh;
     display: flex;
     justify-content: center ;
     align-items: center;
-
 }
