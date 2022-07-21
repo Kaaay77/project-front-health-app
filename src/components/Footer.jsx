@@ -23,7 +23,7 @@ export default function Footer() {
                             <p>(+58) 0261-7156906</p>
                             <p>(+58) 0261-7156990</p>
                             <p>(+58) 0424-6210734</p>
-                            <a href="mailto:informacion@izerh.net" className="correo">informacion@izerh.net</a>
+                            <a href="mailto:informacion@izerh.net" className="email">informacion@izerh.net</a>
                         </div>
                 </div>
                 <div className="boxContent">

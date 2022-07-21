@@ -59,9 +59,18 @@
 }
 
 a{
-    color: #adadad ;
+    color: #00c2ff
+    
 }
 a:hover{
-    color: #00c2ff
+    color: #adadad ;
 }
 
+.email{
+    color: #00c2ff;
+    text-decoration: none;
+}
+.email:hover{
+    color: #00c2ff;
+    text-decoration: none;
+}
