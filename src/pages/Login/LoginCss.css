@@ -1,0 +1,64 @@
+h1 {
+    color:#adadad;
+    width: 23vh;
+    border-bottom: 1px solid #00c2ff;
+    box-shadow: 0 4px 2px -2px #00c2ff;
+  }
+  .loginPage {
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    padding: 5vh;
+    border-radius: 4px;
+
+  }
+
+  .contenidoLog{
+    width: 50vh;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .contenidoLog div label{
+    text-align: start;
+    margin-left: 3vh;
+    color: #adadad;
+    margin-bottom: 0;
+  }
+
+  .formLogin{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #00c2ff;
+    border-radius: 3px;
+    margin-top: 0;
+  }
+
+  .formLogin:focus{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #00c2ff;
+    box-shadow: 0 4px 2px -2px #00c2ff
+  }
+
+  .error-input{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgb(240, 78, 78);;
+    border-radius: 3px;
+    margin-top: 0;
+  }
+  .error-input:focus{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #00c2ff;
+    box-shadow: 0 4px 2px -2px #00c2ff
+  }
