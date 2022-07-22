@@ -5,6 +5,7 @@ import SignupPagecss from "./SignupPage.css";
 
 
 function SignupPage(props) {
+
 	const [ email, setEmail ] = useState('');
 	const [ password, setPassword ] = useState('');
 	const [ name, setName ] = useState('');
@@ -30,11 +31,10 @@ function SignupPage(props) {
       navigate("/login");
     }catch(err){
       if(err.response?.status === 400){
-        setErrorMessage(err.response.data.errorMessage);
-        console.log(errorMessage);
-      }
-    }
-  };
+        setErrorMessage(err.response.data.message);
+	}
+}
+};
 
 	return (
 		<div className="SignupPage">
@@ -45,29 +45,72 @@ function SignupPage(props) {
 				<div className='contenido'>
 					<div>
 						<label>Nombre y Apellido:</label>
-						<input type="text" name="name" value={name} onChange={handleName} />
+						{errorMessage ==="" ?
+						(
+							<input type="text" className='error-input' name="name" value={name} onChange={handleName} />
+
+						):(
+
+							<input type="text" className='formSignup' name="name" value={name} onChange={handleName} />
+						)}
 					</div>
 					<div>
 						<label>Telefono:</label>
-						<input type="text" name="telefono" value={telefono} onChange={handleTelefono} />
+						{errorMessage ==="" ?
+						(
+							<input type="text" className='error-input' name="telefono" value={telefono} onChange={handleTelefono} />
+
+						):(
+							
+							<input type="text" className='formSignup' name="telefono" value={telefono} onChange={handleTelefono} />
+						)}
 					</div>
 					<div>
 						<label>DNI:</label>
-						<input type="text" name="dni" value={dni} onChange={handledni} />
+						{errorMessage ==="" ?
+						(
+							<input type="text" className='error-input' name="dni" value={dni} onChange={handledni} />
+
+						):(
+
+							<input type="text" className='formSignup' name="dni" value={dni} onChange={handledni} />
+						)}
 					</div>					
 				</div>
 				<div className='contenido'>
 					<div>
 						<label>Email:</label>
-						<input type="text" name="email" value={email} onChange={handleEmail} />
+						{errorMessage ==="Coloca un email valido" ? 
+						(
+							<input type="text" className='error-input' name="email" value={email} onChange={handleEmail} />						
+							):(
+								
+								<input type="text" className='formSignup' name="email" value={email} onChange={handleEmail} />
+						)
+						}
 					</div>
 					<div>	
 						<label>Contraseña:</label>
-						<input type="password" name="password" value={password} onChange={handlePassword} />
+					   {errorMessage === 'La contraseña debe tener al menos 6 caracteres con al menos un numero, una minúscula y una mayúscula.' ?
+					   (
+						<input type="password" className='error-input' name="password" value={password} onChange={handlePassword} />
+						   
+						   ):(
+						   <input type="password" className='formSignup' name="password" value={password} onChange={handlePassword} />
+
+					   )
+					}
 					</div>
 					<div> 
 						<label>Repetir Contraseña:</label>
-						<input type="text" name="repeatPassword" value={repeatPassword} onChange={handlerepeatPassword} />
+						{errorMessage ==="Las contraseñas no coinciden." ? 
+						(
+							<input type="password"  name="repeatPassword" value={repeatPassword} onChange={handlerepeatPassword} />
+
+						):(
+
+							<input type="password" className='formSignup' name="repeatPassword" value={repeatPassword} onChange={handlerepeatPassword} />
+						)}
 					</div>
 				</div>
 			</div>
