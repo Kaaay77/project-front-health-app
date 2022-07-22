@@ -9,6 +9,7 @@ import LoginPage from './pages/Login/LoginPage';
 import PrivateRoute from './components/PrivateRoute'; 
 import AnonRoute from './components/AnonRoute';
 import Footer from "./components/Footer/Footer" 
+import Profile from './pages/Perfil/Perfil';
 
 function App() {
 	return (
@@ -44,7 +45,7 @@ function App() {
 						</PrivateRoute>
 					}
 				/> */}
-				{/* <Route
+				<Route
 					exact
 					path="perfil"
 					element={
@@ -52,7 +53,7 @@ function App() {
 							<Profile />
 						</PrivateRoute>
 					}
-				/> */}
+				/>
 				
 				<Route
 					exact
