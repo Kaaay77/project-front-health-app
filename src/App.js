@@ -1,14 +1,14 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import Navbar from './components/NavBar/Navbar';
 import ProjectListPage from './pages/ProjectListPage';
 import ProjectDetailsPage from './pages/ProjectDetailsPage';
-import HomePage from './pages/HomePage'
-import SignupPage from './pages/SignupPage';
+import HomePage from './pages/HomePage/HomePage'
+import SignupPage from './pages/SignupPage/SignupPage';
 import LoginPage from './pages/LoginPage';
 import PrivateRoute from './components/PrivateRoute'; 
 import AnonRoute from './components/AnonRoute';
-import Footer from "./components/Footer" 
+import Footer from "./components/Footer/Footer" 
 
 function App() {
 	return (

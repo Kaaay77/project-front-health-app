@@ -1,0 +1,65 @@
+h1 {
+  color:#adadad;
+  width: 23vh;
+  margin-left: 42.5%;
+  border-bottom: 1px solid #00c2ff;
+  box-shadow: 0 4px 2px -2px #00c2ff
+}
+.SignupPage {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 4px;
+  }
+
+.SignupPage form {
+  width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5vh;
+}
+.contenido{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  height: 20vh;
+
+}
+
+.contenido div label{
+  text-align: start;
+  margin-left: 3vh;
+  color: #adadad;
+  margin-bottom: 0;
+}
+
+.contenido div input{
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #00c2ff;
+  border-radius: 3px;
+  margin-top: 0;
+}
+
+.contenido div input:focus{
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #00c2ff;
+  box-shadow: 0 4px 2px -2px #00c2ff
+
+  
+}
+.ptext {
+  color: #adadad;
+  margin-top: 2vh;
+}

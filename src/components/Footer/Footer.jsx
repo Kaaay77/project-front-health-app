@@ -1,6 +1,6 @@
-import logo from "../images/logo-izerh-02.svg"
+import logo from "../../images/logo-izerh-02.svg"
 import Footercss from "./Footer.css"
-import Social from "./Social"
+import Social from "../Social"
 
 
 

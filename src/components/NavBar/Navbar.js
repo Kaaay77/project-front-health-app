@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";                       // <== IMPORT 
-import { AuthContext } from "./../context/auth.context";  // <== IMPORT
-import logo from "../images/logo-izerh-02.svg"
+import { AuthContext } from "../../context/auth.context";  // <== IMPORT
+import logo from "../../images/logo-izerh-02.svg"
 import NavBar from "./NavBar.css"
 import { FiShoppingCart } from 'react-icons/fi';
 

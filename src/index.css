@@ -64,9 +64,7 @@ textarea {
 
 .EditProjectPage,
 .AddProject,
-.AddTask,
-.SignupPage,
-.LoginPage {
+.AddTask {
   background: #f9eec3;
   border: 1px solid grey;
   box-shadow: 0px 2px 3px grey;
@@ -82,20 +80,14 @@ textarea {
   background-color: rgb(239, 196, 88);
 }
 
-.SignupPage,
-.LoginPage {
-  background-color: #608dd5;
-}
 
-.LoginPage {
-  background-color: #94a7c8;
-}
+
+
 
 .EditProjectPage form,
 .AddTask form,
-.AddProject form,
-.SignupPage form,
-.LoginPage form {
+.AddProject form{
+
   display: flex;
   flex-direction: column;
   align-items: center;
