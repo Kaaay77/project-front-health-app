@@ -3,10 +3,16 @@ import { useState, useContext, useEffect } from 'react';
 import { updateService, getProfileService } from '../../services/profile.services';
 import {useNavigate, Link} from "react-router-dom"
 import { AuthContext } from '../../context/auth.context';
+import axios from 'axios'
+
+const API_URL = process.env.REACT_APP_API_URL;
 
 export default function Profile() {
     //States
 	const { user } = useContext(AuthContext);
+    const [usuario, setUsuario] = useState([]);
+    const [ loading, setLoading ] = useState(true);
+
     const [ email, setEmail ] = useState('');
 	const [ password, setPassword ] = useState('');
 	const [ name, setName ] = useState('');
@@ -54,6 +60,25 @@ export default function Profile() {
 	}
     }
     }
+
+//     useEffect(() => {
+//         // Get the token from the localStorage
+//         const storedToken = localStorage.getItem('authToken');
+        
+//         // Send the token through the request "Authorization" Headers 
+//         axios
+//           .get(
+//             `${API_URL}/profile`,
+//             { headers: { Authorization: `Bearer ${storedToken}` } }    
+//           )
+//           .then((response) => { 
+//             setUsuario(response.data);
+//             setLoading(false)
+//           })
+//           .catch((error) => console.log(error));
+        
+//       }, []);
+// console.log(usuario)
 
 // console.log(profile)
     return(<>
