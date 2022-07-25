@@ -30,7 +30,7 @@ function LoginPage(props) {
 			setErrorMessage(errorDescription);
 		}
 	};
-	console.log(errorMessage);
+	// console.log(errorMessage);
 
 	return (
 		<div className="loginPage">

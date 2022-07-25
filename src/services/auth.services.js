@@ -7,7 +7,7 @@ const signupService = (user) => {
 };
 
 const updateService = (user) => {
-	return service.put(`${URL}/profile`, user);
+	return service.post(`${URL}/profile`, user);
 };
  
 const loginService = (user) => {

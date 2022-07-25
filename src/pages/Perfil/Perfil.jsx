@@ -1,9 +1,8 @@
 /* Titulo de bienvenida, Datos del perfil, btn de editar perfil, incluir direccion(pais, ciudad, codigo postal, calle, historial, etc.) */
-import { useState, useContext } from 'react';
-import { updateService } from '../../services/auth.services';
+import { useState, useContext, useEffect } from 'react';
+import { updateService, getProfileService } from '../../services/profile.services';
 import {useNavigate, Link} from "react-router-dom"
 import { AuthContext } from '../../context/auth.context';
-
 
 export default function Profile() {
     //States
@@ -17,7 +16,7 @@ export default function Profile() {
     const [city, setCity] = useState('')
     const [province, setProvince] = useState('');
     const [zipCode, setZipCode]=useState('');
-    const [address, setAddress]=useState('');
+    const [address1, setAddress1]=useState('');
     const [address2, setAddress2]=useState('');
     
     //navigate
@@ -26,11 +25,11 @@ export default function Profile() {
 
     //handles
     const handleEmail = (e) => setEmail(e.target.value);
-	const handlePassword = (e) => setPassword(e.target.value);
-	const handleName = (e) => setName(e.target.value);
-	const handlerepeatPassword = (e) => setRepeatPassword(e.target.value);
+	// const handleName = (e) => setName(e.target.value);
+	// const handlePassword = (e) => setPassword(e.target.value);
+	// const handlerepeatPassword = (e) => setRepeatPassword(e.target.value);
 	const handleTelefono = (e) => setTelefono(e.target.value);
-    const handleAddress = (e) => setAddress(e.target.value);
+    const handleAddress = (e) => setAddress1(e.target.value);
     const handleAddress2 = (e) => setAddress2(e.target.value)
     const handleCity = (e) => setCity(e.target.value)
     const handleCountry = (e)=> setCountry(e.target.value)
@@ -39,20 +38,15 @@ export default function Profile() {
     
 
     
-
-
-    
-
-    
     const handleUpdateSubmit = async (e) => {
         
     
 		e.preventDefault();
 		// Create an object representing the request body
-		const requestBody = { email, password, name, repeatPassword, telefono, country, city, zipCode, province, address, address2 };
+		const requestBody = { country, city, zipCode, province, address1, address2 };
     try{
       await updateService(requestBody);
-      navigate("/perfil");
+      navigate(`/perfil`);
     }
     catch(err){
       if(err.response?.status === 400){
@@ -61,8 +55,8 @@ export default function Profile() {
     }
     }
 
+// console.log(profile)
     return(<>
-
 <div class="container p-0">
     <div class="row">
         <div class="col-md-5 col-xl-4">
@@ -109,54 +103,47 @@ export default function Profile() {
                                    </ul>
                         </div>
                     </div>
-
                     <div class="card">
                         <div class="card-header">
                             <h5 class="card-title mb-0">Informacion Personal</h5>
                         </div>
                         <div class="card-body">
-                            <form>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="inputFirstName">Nombre</label>
-                                        <input type="text" class="form-control" id="inputFirstName" value={user.name} onChange={handleName} />
-                                    </div>
-                                </div>
-                                <div class="form-group">
+                            <form onSubmit={handleUpdateSubmit}>
+                                {/* <div class="form-group">
                                     <label for="inputEmail4">Email</label>
-                                    <input type="email" class="form-control" id="inputEmail4" value={user.email} onChange={handleEmail}/>
+                                    <input type="email" class="form-control" name='email' value={user.email} onChange={handleEmail}/>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputEmail4">Telefono de contacto</label>
-                                    <input type="text" class="form-control" id="inputEmail4" value={user.telefono} onChange={handleTelefono}/>
-                                </div>
+                                    <input type="text" class="form-control" name='telefono' value={user.telefono} onChange={handleTelefono}/>
+                                </div> */}
                                 <div class="form-group">
                                     <label for="inputAddress">Dirección</label>
-                                    <input type="text" class="form-control" id="inputAddress" placeholder="Calle, avenida" onChange={handleAddress}/>
+                                    <input type="text" class="form-control" name='address1' value={user.address1} onChange={handleAddress}/>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputAddress2">Dirección 2</label>
-                                    <input type="text" class="form-control" id="inputAddress2" placeholder="Opcional" onChange={handleAddress2}/>
+                                    <input type="text" class="form-control" name='address2' placeholder="Opcional" value={user.address2} onChange={handleAddress2}/>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputAddress2">Pais</label>
-                                    <input type="text" class="form-control" id="inputAddress2"  onChange={handleCountry}/>
+                                    <input type="text" class="form-control" name='country' value={user.country} onChange={handleCountry}/>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="inputCity">Ciudad</label>
-                                        <input type="text" class="form-control" id="inputCity" onChange={handleCity}/>
+                                        <label for="inputCity">Ciudad</label> 
+                                        <input type="text" class="form-control" name='city' value={user.city} onChange={handleCity}/>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="inputState">Provincia</label>
-                                        <input type="text" class="form-control" id="inputProvince" onChange={handleProvince}/>
+                                        <input type="text" class="form-control" name='province' value={user.province} onChange={handleProvince}/>
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label for="inputZip">Codigo Postal</label>
-                                        <input type="text" class="form-control" id="inputZip" onChange={handleZipCode}/>
+                                        <input type="text" class="form-control" name='zipCode' value={user.zipCode} onChange={handleZipCode}/>
                                     </div>
                                 </div>
-                                <button type="submit" onChange={handleUpdateSubmit}>Guardar cambios</button>
+                                <button type="submit" >Guardar cambios</button>
                             </form>
 
                         </div>

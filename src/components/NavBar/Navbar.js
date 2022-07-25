@@ -25,8 +25,8 @@ function Navbar() {
         <span>Sobre Nosotros</span>
       </Link>
 
-      <Link to="/servicios" style={{textDecoration: "none"}}>
-        <span>Servicios</span>
+      <Link to="/pruebas" style={{textDecoration: "none"}}>
+        <span>Pruebas</span>
       </Link>
 
       <Link to="/carrito" style={{textDecoration: "none"}}>
@@ -37,7 +37,7 @@ function Navbar() {
       {isLoggedIn
         ? (<>
             <span>{user.name}</span>
-            <Link to="/perfil" style={{textDecoration: "none"}}>
+            <Link to={`/perfil`} style={{textDecoration: "none"}}>
               <button>Perfil</button>
             </Link>
             <Link to="" style={{textDecoration: "none"}}>

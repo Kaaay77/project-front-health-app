@@ -10,6 +10,7 @@ import PrivateRoute from './components/PrivateRoute';
 import AnonRoute from './components/AnonRoute';
 import Footer from "./components/Footer/Footer" 
 import Profile from './pages/Perfil/Perfil';
+import Pruebas from "./pages/Pruebas/Pruebas"
 
 function App() {
 	return (
@@ -27,15 +28,7 @@ function App() {
 							</PrivateRoute>
 						}
 					/> */}
-				{/* <Route
-					exact
-					path="/servicios"
-					element={
-						<PrivateRoute>
-							<Services />
-						</PrivateRoute>
-					}
-				/> */}
+
 				{/* <Route
 					exact
 					path="carrito"
@@ -47,7 +40,7 @@ function App() {
 				/> */}
 				<Route
 					exact
-					path="perfil"
+					path="/perfil"
 					element={
 						<PrivateRoute>
 							<Profile />
@@ -57,10 +50,10 @@ function App() {
 				
 				<Route
 					exact
-					path="/projects/:id"
+					path="/pruebas"
 					element={
 						<PrivateRoute>
-							<ProjectDetailsPage />
+							<Pruebas />
 						</PrivateRoute>
 					}
 				/>
