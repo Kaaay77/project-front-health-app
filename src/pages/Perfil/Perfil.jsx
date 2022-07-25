@@ -10,14 +10,14 @@ const API_URL = process.env.REACT_APP_API_URL;
 export default function Profile() {
     //States
 	const { user } = useContext(AuthContext);
-    const [usuario, setUsuario] = useState([]);
-    const [ loading, setLoading ] = useState(true);
+    // const [usuario, setUsuario] = useState([]);
+    // const [ loading, setLoading ] = useState(true);
 
-    const [ email, setEmail ] = useState('');
-	const [ password, setPassword ] = useState('');
-	const [ name, setName ] = useState('');
-	const [repeatPassword, setRepeatPassword] = useState('');
-	const [telefono, setTelefono] = useState('');
+    // const [ email, setEmail ] = useState('');
+	// const [ password, setPassword ] = useState('');
+	// const [ name, setName ] = useState('');
+	// const [repeatPassword, setRepeatPassword] = useState('');
+	// const [telefono, setTelefono] = useState('');
     const [country, setCountry] = useState('')
     const [city, setCity] = useState('')
     const [province, setProvince] = useState('');
@@ -30,11 +30,11 @@ export default function Profile() {
     const [ errorMessage, setErrorMessage ] = useState(undefined);
 
     //handles
-    const handleEmail = (e) => setEmail(e.target.value);
+    // const handleEmail = (e) => setEmail(e.target.value);
 	// const handleName = (e) => setName(e.target.value);
 	// const handlePassword = (e) => setPassword(e.target.value);
 	// const handlerepeatPassword = (e) => setRepeatPassword(e.target.value);
-	const handleTelefono = (e) => setTelefono(e.target.value);
+	// const handleTelefono = (e) => setTelefono(e.target.value);
     const handleAddress = (e) => setAddress1(e.target.value);
     const handleAddress2 = (e) => setAddress2(e.target.value)
     const handleCity = (e) => setCity(e.target.value)
