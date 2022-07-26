@@ -1,22 +1,17 @@
-import Pruebas from "../Pruebas/Pruebas";
-import axios from "axios";
 import { getCarritoService, deleteCarritoService } from "../../services/carrito.services";
 import { useState, useEffect, useContext } from "react";
-// import { useParams } from 'react-router-dom';
-import { AuthContext } from '../../context/auth.context';
-import { useNavigate } from 'react-router-dom';
-
-const API_URL = process.env.REACT_APP_API_URL;
+import { AuthContext } from "../../context/auth.context";
+import { useNavigate } from "react-router-dom";
 
 export default function ShoppingCart() {
-    const { user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
-  // const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const [pruebas, setPruebas] = useState([]);
   const [loading, setLoading] = useState(true);
-  // const { id } = useParams();
+  const [total, setTotal] = useState(0);
+
   const getUserPruebas = async () => {
     localStorage.getItem("authToken");
     try {
@@ -24,6 +19,12 @@ export default function ShoppingCart() {
       console.log(response.data.pruebas);
       setPruebas(response.data.pruebas);
       setLoading(false);
+      const result = response.data.pruebas.reduce(
+        (total, currentValue) => (total = total + currentValue.price),
+        0
+      );
+      console.log(result);
+      setTotal(result);
     } catch (err) {
       console.log(err);
     }
@@ -32,7 +33,6 @@ export default function ShoppingCart() {
   useEffect(() => {
     getUserPruebas();
   }, []);
-  //console.log(user._id)
 
   const handleSubmit = async (e) => {
     const idPruebas = e.target[0].value;
@@ -44,7 +44,7 @@ export default function ShoppingCart() {
       console.log(requestBody);
       await deleteCarritoService(requestBody);
 
-        navigate("/carrito");
+      navigate("/carrito");
     } catch (err) {
       if (err.response?.status === 400) {
         console.log(err.response.data.message);
@@ -55,11 +55,13 @@ export default function ShoppingCart() {
   return (
     <>
       {loading && <div className="load">🥲</div>}
-      <div id="pruebasGird">
+      <div id="">
+          <h2>{total}</h2>        
+          <div id="pruebasGird">
         {!loading &&
           pruebas?.map((test) => {
-            return (
-              <>
+              return (
+                 
                 <div id="pruebasCard" key={test._id}>
                   <h5>{test.title}</h5>
                   <p>{test.description}</p>
@@ -68,15 +70,16 @@ export default function ShoppingCart() {
                       <b>{test.price}€ 🤑</b>
                     </p>
                     <form onSubmit={handleSubmit}>
-                    <input type="hidden" name="idPruebas" value={test._id}  />
+                      <input type="hidden" name="idPruebas" value={test._id} />
                       <button type="submit">Eliminar</button>
                     </form>
                   </div>
                 </div>
-              </>
             );
-          })}
+        })}
+        </div>
       </div>
+      <div></div>
     </>
   );
 }
