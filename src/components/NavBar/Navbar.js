@@ -6,11 +6,13 @@ import NavBar from "./NavBar.css"
 import { FiShoppingCart } from 'react-icons/fi';
 
 
+
 function Navbar() {
   // Subscribe to the AuthContext to gain access to
   // the values from AuthContext.Provider `value` prop
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
+// console.log(user._id)
   return (
     <nav className="navContainer">
     <div>
@@ -29,14 +31,16 @@ function Navbar() {
         <span>Pruebas</span>
       </Link>
 
-      <Link to="/carrito" style={{textDecoration: "none"}}>
+      <Link to={`/carrito`} style={{textDecoration: "none"}}>
         <h3><FiShoppingCart/></h3>
       </Link>
       </div>
       <div className="loged">
       {isLoggedIn
         ? (<>
+            <Link to={`/perfil`} style={{textDecoration: "none"}}>
             <span>{user.name}</span>
+            </Link>
             <Link to={`/perfil`} style={{textDecoration: "none"}}>
               <button>Perfil</button>
             </Link>

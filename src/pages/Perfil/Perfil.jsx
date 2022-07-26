@@ -51,8 +51,9 @@ export default function Profile() {
 		// Create an object representing the request body
 		const requestBody = { country, city, zipCode, province, address1, address2 };
     try{
-      await updateService(requestBody);
-      navigate(`/perfil`);
+      const response = await updateService(requestBody);
+
+      navigate(`/`);
     }
     catch(err){
       if(err.response?.status === 400){
@@ -61,6 +62,26 @@ export default function Profile() {
     }
     }
 
+
+    const getProfile = async () => {
+        localStorage.getItem('authToken');
+        try {
+            const response = await getProfileService()
+            console.log(response.data)
+            setCountry(response.data.country)
+            setCity(response.data.city)
+            setProvince(response.data.province)
+            setZipCode(response.data.zipCode)
+            setAddress1(response.data.address1)
+            setAddress2(response.data.address2)
+        }
+        catch (err) {
+        console.log(err);
+    }
+    }
+    useEffect(() => {
+        getProfile()
+    }, [])
 //     useEffect(() => {
 //         // Get the token from the localStorage
 //         const storedToken = localStorage.getItem('authToken');
@@ -144,31 +165,31 @@ export default function Profile() {
                                 </div> */}
                                 <div class="form-group">
                                     <label for="inputAddress">Dirección</label>
-                                    <input type="text" class="form-control" name='address1' value={user.address1} onChange={handleAddress}/>
+                                    <input type="text" class="form-control" name='address1' value={address1} onChange={handleAddress}/>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputAddress2">Dirección 2</label>
-                                    <input type="text" class="form-control" name='address2' placeholder="Opcional" value={user.address2} onChange={handleAddress2}/>
+                                    <input type="text" class="form-control" name='address2' placeholder="Opcional" value={address2} onChange={handleAddress2}/>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputAddress2">Pais</label>
-                                    <input type="text" class="form-control" name='country' value={user.country} onChange={handleCountry}/>
+                                    <input type="text" class="form-control" name='country' value={country} onChange={handleCountry}/>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="inputCity">Ciudad</label> 
-                                        <input type="text" class="form-control" name='city' value={user.city} onChange={handleCity}/>
+                                        <input type="text" class="form-control" name='city' value={city} onChange={handleCity}/>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="inputState">Provincia</label>
-                                        <input type="text" class="form-control" name='province' value={user.province} onChange={handleProvince}/>
+                                        <input type="text" class="form-control" name='province' value={province} onChange={handleProvince}/>
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label for="inputZip">Codigo Postal</label>
-                                        <input type="text" class="form-control" name='zipCode' value={user.zipCode} onChange={handleZipCode}/>
+                                        <input type="text" class="form-control" name='zipCode' value={zipCode} onChange={handleZipCode}/>
                                     </div>
                                 </div>
-                                <button type="submit" >Guardar cambios</button>
+                                <button type="submit">Guardar cambios</button>
                             </form>
 
                         </div>

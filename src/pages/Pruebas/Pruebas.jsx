@@ -1,8 +1,10 @@
 import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { getPruebasService } from '../../services/pruebas.services';
+// import { getPruebasService } from '../../services/pruebas.services';
+import {getAddPruebasService} from '../../services/pruebas.services'
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/auth.context';
+import PruebasCss from "./PruebasCss.css"
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -50,17 +52,20 @@ export default function Pruebas() {
         
       }, []);
 
-      const handleId = (e) => setIdPruebas(e.target.value);
+      
 
 
       const handleSubmit = async (e) => {
+        console.log(e.target[0].value)
+        const idPruebas = e.target[0].value
 		e.preventDefault();
+        
 		// Create an object representing the request body
 		const requestBody = { idPruebas, idUser: user._id};
         try{
         console.log(requestBody)
-      await getPruebasService(requestBody);
-      navigate("/pruebas");
+      await getAddPruebasService(requestBody);
+    //   navigate("/pruebas");
     }catch(err){
       if(err.response?.status === 400){
         console.log(err.response.data.message);
@@ -68,25 +73,28 @@ export default function Pruebas() {
 }
       };    
     return (<>
-        <div>
-            <h1>Pruebas</h1>
+        <div clasName="pruebasContainer CC">
+            <h1 className='classh1Pruebas'>Pruebas</h1>
                 <div>
-			{loading && <div>Loading...</div>}
-                    
+			{loading && <div className='load'>Loading...</div>}
+              <div id='pruebasGird'>
                 {!loading && pruebas?.map((test) =>{
-                            return(<>
-                            <div >
+                    return(<>
+                            <div id="pruebasCard">
                                 <h5>{test.title}</h5>
                                 <p>{test.description}</p>
-                                <p>{test.price}€ 🤑</p>
-                                <form onChange={handleSubmit}>
-                                    <input type="hidden" name="id" value={test._id} onChange={handleId} />
-                                    <button type="submit">Añadete coño</button>
+                                <div>
+                                <b>{test.price}€ 🤑</b>                                
+                                <form onSubmit={handleSubmit}>
+                                    <input type="hidden" name="idPruebas" value={test._id}  />
+                                    <button type="submit">Añade al carrito</button>
                                 </form>
+                                </div>
                             </div>
                                 </>
                             )      
-                            })}    
+                        })}    
+               </div>      
             </div>
         </div>
             

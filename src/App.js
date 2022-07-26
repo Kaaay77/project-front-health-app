@@ -9,6 +9,7 @@ import AnonRoute from './components/AnonRoute';
 import Footer from "./components/Footer/Footer" 
 import Profile from './pages/Perfil/Perfil';
 import Pruebas from "./pages/Pruebas/Pruebas"
+import ShoppingCart from "./pages/ShoppingCart/ShoppingCart"
 
 function App() {
 	return (
@@ -27,15 +28,15 @@ function App() {
 						}
 					/> */}
 
-				{/* <Route
+				<Route
 					exact
-					path="carrito"
+					path="/carrito"
 					element={
 						<PrivateRoute>
-							<Basket />
+							<ShoppingCart />
 						</PrivateRoute>
 					}
-				/> */}
+				/>
 				<Route
 					exact
 					path="/perfil"
