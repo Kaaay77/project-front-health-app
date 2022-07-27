@@ -2,10 +2,10 @@ import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 // import { getPruebasService } from '../../services/pruebas.services';
 import {getAddPruebasService} from '../../services/pruebas.services'
-import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/auth.context';
+// eslint-disable-next-line
 import PruebasCss from "./PruebasCss.css"
-
+import Spinner from 'react-bootstrap/Spinner';
 const API_URL = process.env.REACT_APP_API_URL;
 
 export default function Pruebas() {
@@ -13,27 +13,7 @@ export default function Pruebas() {
 
 	const [ loading, setLoading ] = useState(true);
 	const [ pruebas, setPruebas ] = useState([]);
-    const navigate = useNavigate();
-    const [ idPruebas, setIdPruebas ] = useState('') 
-    // const [idUser, setIdUser] = useState("");
-
-	// const getAllPruebas = async () => {
-	// 	// Send the token through the request "Authorization" Headers
-	// 	try {
-	// 		const response = await getPruebasService();
-	// 		setPruebas(response.data);
-	// 		setLoading(false);
-	// 	} catch (err) {
-    //         console.log(err);
-	// 	}
-	// };
-    // console.log(pruebas)
-
-	// // We set this effect will run only once, after the initial render
-	// // by setting the empty dependency array - []
-	// useEffect(() => {
-	// 	getAllPruebas();
-	// }, []);
+   
     useEffect(() => {
         // Get the token from the localStorage
         const storedToken = localStorage.getItem('authToken');
@@ -65,6 +45,7 @@ export default function Pruebas() {
         try{
         console.log(requestBody)
       await getAddPruebasService(requestBody);
+      window.location.reload(false)  //  probar de hacer una bandora con un useState y que cambie el estado
     //   navigate("/pruebas");
     }catch(err){
       if(err.response?.status === 400){
@@ -76,7 +57,7 @@ export default function Pruebas() {
         <div clasName="pruebasContainer CC">
             <h1 className='classh1Pruebas'>Pruebas</h1>
                 <div>
-			{loading && <div className='load'>Loading...</div>}
+			{loading && <div className='load'><Spinner animation="border" variant="info" /></div>}
               <div id='pruebasGird'>
                 {!loading && pruebas?.map((test) =>{
                     return(<>

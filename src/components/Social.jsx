@@ -3,6 +3,7 @@ import { FiTwitter } from 'react-icons/fi';
 import { FiInstagram } from 'react-icons/fi';
 import { FiFacebook } from 'react-icons/fi';
 //Css Social en Footer
+// eslint-disable-next-line
 import Footercss from "../components/Footer/Footer.css"
 
 

@@ -5,8 +5,12 @@
 }
 .totalDiv {
     border: red solid 1px;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 50vh;
+    height: 70vh;
 }
 .contenedorP{
     width: 140vh;

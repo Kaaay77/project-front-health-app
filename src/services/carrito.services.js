@@ -11,5 +11,8 @@ const deleteCarritoService = (user) => {
 	return service.post(`${URL}/api/carrito`, user);
 };
 
+const buyCarritoService = (user) => {
+	return service.put(`${URL}/api/carrito`, user);
+};
 
-export {  getCarritoService, deleteCarritoService};
+export { getCarritoService, deleteCarritoService, buyCarritoService};

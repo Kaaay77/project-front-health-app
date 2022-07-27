@@ -56,6 +56,23 @@ nav {
     
   }
 
+  .shopping {
+  display: flex;
+  }
+
+  .badge{
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: red !important;
+    align-items: center;
+    width: 2vh;
+    height: 2vh;
+  }
+  .badge:hover {
+    color: #ffff !important;
+  }
+
   
 
   

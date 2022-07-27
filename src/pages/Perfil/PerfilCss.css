@@ -9,28 +9,40 @@
     width: 30%;
     height: 35vh;
     color: #adadad;
-    border-radius: 10px;
-    box-shadow:  0px 1px 2px #00c2ff;
+    border-radius: 20px;
+    box-shadow:  0px 1px 5px #00c2ff;
+    padding-top: 1vh;
 
 }
 
 
 #perfilCard{
-width: 30%;
-color: #adadad;
-border-radius: 10px;
-
-box-shadow:  0px 1px 2px #00c2ff;
-
+    padding-top: 1vh;
+    width: 30%;
+    color: #adadad;
+    border-radius: 20px;
+    box-shadow:  0px 1px 5px #00c2ff;
 }
 
+#perfilCaardButton{
+    margin: 2vh;
+}
 
+#ajustesGeneral{
+    width: 30%;
+    height: fit-content;
+    color: #adadad;
+    padding-top: 1vh;
+    border-radius: 20px;
+    box-shadow:  0px 1px 5px #00c2ff;
+   
+}
 
 .Column{
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 2vh;
+    gap: 3vh;
 }
 .classh3 {
     color: #00c2ff;
@@ -40,4 +52,29 @@ box-shadow:  0px 1px 2px #00c2ff;
   }
  .Informacion{
      text-align: start;
+     margin-left: 1vh;
  }
+
+ .classlabel{
+    text-align: start;
+    margin-left: 3vh;
+    color: #adadad;
+    margin-bottom: 0;
+  }
+ 
+  .color{
+    color: #adadad;
+    font-weight: bold;
+ 
+  }
+  
+  ::placeholder{
+    color: #00c2ff;
+    font-weight: 200;
+  }
+  .barrita{
+    background-color: #00c2ff;
+    width: 2vh;
+    height: 1px;
+    margin-left: 3vh;
+  }

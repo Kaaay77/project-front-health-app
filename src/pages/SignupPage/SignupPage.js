@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 import { signupService } from '../../services/auth.services';
+// eslint-disable-next-line
 import SignupPagecss from "./SignupPage.css";
 
 

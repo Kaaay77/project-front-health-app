@@ -2,7 +2,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import carousel1 from "../../images/pregnant2.jpeg"
 import carousel2 from "../../images/seguridad.jpeg"
 import carousel3 from "../../images/equipo-izerh.jpeg"
-
+// eslint-disable-next-line
 import Carouselcss from "./Carouselcss.css"
 
 function IndividualIntervalsExample() {

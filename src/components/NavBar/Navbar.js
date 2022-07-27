@@ -2,16 +2,33 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";                       // <== IMPORT 
 import { AuthContext } from "../../context/auth.context";  // <== IMPORT
 import logo from "../../images/logo-izerh-02.svg"
+// eslint-disable-next-line
 import NavBar from "./NavBar.css"
 import { FiShoppingCart } from 'react-icons/fi';
-
+import Badge from 'react-bootstrap/Badge';
+import { getCarritoService } from "../../services/carrito.services";
+import { useState, useEffect } from "react";
 
 
 function Navbar() {
   // Subscribe to the AuthContext to gain access to
   // the values from AuthContext.Provider `value` prop
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  const [totalProducts, setTotalProducts] = useState(0)
 
+  const getUserPruebas = async () => {
+    localStorage.getItem("authToken");
+    try {
+      const response = await getCarritoService();
+      setTotalProducts(response.data.pruebas.length)
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    getUserPruebas();
+  }, []);
 // console.log(user._id)
   return (
     <nav className="navContainer">
@@ -31,9 +48,22 @@ function Navbar() {
         <span>Pruebas</span>
       </Link>
 
+      <div className="shopping">
       <Link to={`/carrito`} style={{textDecoration: "none"}}>
-        <h3><FiShoppingCart/></h3>
+        <div>
+          <h3><FiShoppingCart/></h3>
+        </div>
       </Link>
+        {totalProducts !== 0 ? 
+        (
+        <div className="badgeSize">
+        <Badge className="badge">{totalProducts}</Badge> 
+        </div>
+
+        ):(
+          <></>
+        )}
+      </div>
       </div>
       <div className="loged">
       {isLoggedIn

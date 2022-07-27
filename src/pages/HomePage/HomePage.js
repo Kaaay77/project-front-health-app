@@ -1,9 +1,9 @@
-import equipo from "../../images/equipo-izerh.jpeg"
 import {Link} from "react-router-dom"
 import dermatologia from "../../images/Dermatología-nuevo.svg"
 import fertilidad from "../../images/Fertilidad.svg"
 import laboratorioClinico from "../../images/Laboratorio-clinico.svg"
 import ocupacional from "../../images/Ocupacional.svg"
+// eslint-disable-next-line
 import HomePageCss from "./HomePage.css"
 import  Carousel  from "../../components/carousel/carousel"
 // import TwitterIcon from "../components/TwitterIcon"

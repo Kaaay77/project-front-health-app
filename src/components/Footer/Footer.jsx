@@ -1,4 +1,5 @@
 import logo from "../../images/logo-izerh-02.svg"
+// eslint-disable-next-line
 import Footercss from "./Footer.css"
 import Social from "../Social"
 
