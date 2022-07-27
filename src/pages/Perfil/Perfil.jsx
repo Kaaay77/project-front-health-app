@@ -3,9 +3,8 @@ import { useState, useContext, useEffect } from 'react';
 import { updateService, getProfileService } from '../../services/profile.services';
 import {useNavigate, Link} from "react-router-dom"
 import { AuthContext } from '../../context/auth.context';
-import axios from 'axios'
+ import PerfilCss from "./PerfilCss.css"
 
-const API_URL = process.env.REACT_APP_API_URL;
 
 export default function Profile() {
     //States
@@ -102,132 +101,120 @@ export default function Profile() {
 // console.log(usuario)
 
 // console.log(profile)
-    return(<>
-<div class="container p-0">
-    <div class="row">
-        <div class="col-md-5 col-xl-4">
+return (
+    <>
+      <div id="containerPerfil">
+        <div id="ajustesCard" className="Column">
+          <div>
+            <h3 className="classh3">Ajustes de perfil</h3>
+          </div>
 
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title mb-0">Ajustes de perfil</h5>
-                </div>
+          <div className="Column">
+            <Link to={""} style={{ textDecoration: "none" }}>
+              <span>Información del Perfil</span>
+            </Link>
 
-                <div class="list-group list-group-flush" role="tablist">
-                    <a class="list-group-item list-group-item-action active" data-toggle="list" href="#account" role="tab">
-                      Información del Perfil
-                    </a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#password" role="tab">
-                      Carrito de la Compra
-                    </a>  
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#password" role="tab">
-                      Historial
+            <Link to={""} style={{ textDecoration: "none" }}>
+              <span>Carrito de la Compra</span>
+            </Link>
+
+            {/* <a>                        
+                        Historial
                     </a> 
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#password" role="tab">
-                      Cambiar Contraseña
+                    <a>                       
+                        Cambiar Contraseña
                     </a> 
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#e" role="tab">
-                      Eliminar cuenta
-                    </a>
-                </div>
-            </div>
+                    <a>                        
+                        Eliminar cuenta
+                    </a> */}
+          </div>
         </div>
 
-        <div class="col-md-7 col-xl-8">
-            <div class="tab-content">
-                <div class="tab-pane fade show active" id="account" role="tabpanel">
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-title mb-0">Información General</h5>
-                        </div>
-                        <div class="card-body">
-                                   <ul>
-                                       <li>{user.name}</li>
-                                       <li>{user.email}</li>
-                                       <li>{user.dni}</li>
-                                       <li>{user.telefono}</li>
-                                   </ul>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-title mb-0">Informacion Personal</h5>
-                        </div>
-                        <div class="card-body">
-                            <form onSubmit={handleUpdateSubmit}>
-                                {/* <div class="form-group">
-                                    <label for="inputEmail4">Email</label>
-                                    <input type="email" class="form-control" name='email' value={user.email} onChange={handleEmail}/>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputEmail4">Telefono de contacto</label>
-                                    <input type="text" class="form-control" name='telefono' value={user.telefono} onChange={handleTelefono}/>
-                                </div> */}
-                                <div class="form-group">
-                                    <label for="inputAddress">Dirección</label>
-                                    <input type="text" class="form-control" name='address1' value={address1} onChange={handleAddress}/>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputAddress2">Dirección 2</label>
-                                    <input type="text" class="form-control" name='address2' placeholder="Opcional" value={address2} onChange={handleAddress2}/>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputAddress2">Pais</label>
-                                    <input type="text" class="form-control" name='country' value={country} onChange={handleCountry}/>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="inputCity">Ciudad</label> 
-                                        <input type="text" class="form-control" name='city' value={city} onChange={handleCity}/>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="inputState">Provincia</label>
-                                        <input type="text" class="form-control" name='province' value={province} onChange={handleProvince}/>
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="inputZip">Codigo Postal</label>
-                                        <input type="text" class="form-control" name='zipCode' value={zipCode} onChange={handleZipCode}/>
-                                    </div>
-                                </div>
-                                <button type="submit">Guardar cambios</button>
-                            </form>
-
-                        </div>
-                    </div>
-
+        <div id="perfilCard" className="Column">
+          <div>
+            <h3 className="classh3">Informacion Personal</h3>
+          </div>
+          <div class="">
+            <form onSubmit={handleUpdateSubmit}>
+              <div class="">
+                <label for="inputAddress">Dirección</label>
+                <input
+                  type="text"
+                  name="address1"
+                  value={address1}
+                  onChange={handleAddress}
+                />
+              </div>
+              <div class="">
+                <label for="inputAddress2">Dirección 2</label>
+                <input
+                  type="text"
+                  class=""
+                  name="address2"
+                  placeholder="Opcional"
+                  value={address2}
+                  onChange={handleAddress2}
+                />
+              </div>
+              <div class="">
+                <label for="inputAddress2">Pais</label>
+                <input
+                  type="text"
+                  class=""
+                  name="country"
+                  value={country}
+                  onChange={handleCountry}
+                />
+              </div>
+              <div class="">
+                <div class="">
+                  <label for="inputCity">Ciudad</label>
+                  <input
+                    type="text"
+                    class=""
+                    name="city"
+                    value={city}
+                    onChange={handleCity}
+                  />
                 </div>
-                {/* <div class="tab-pane fade" id="password" role="tabpanel">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Password</h5>
-
-                            <form>
-                                <div class="form-group">
-                                    <label for="inputPasswordCurrent">Current password</label>
-                                    <input type="password" class="form-control" id="inputPasswordCurrent" />
-                                    <small><a href="#">Forgot your password?</a></small>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputPasswordNew">New password</label>
-                                    <input type="password" class="form-control" id="inputPasswordNew" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputPasswordNew2">Verify password</label>
-                                    <input type="password" class="form-control" id="inputPasswordNew2" />
-                                </div>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
-                            </form>
-
-                        </div>
-                    </div>
-                </div> */}
-            </div>
+                <div class="">
+                  <label for="inputState">Provincia</label>
+                  <input
+                    type="text"
+                    class=""
+                    name="province"
+                    value={province}
+                    onChange={handleProvince}
+                  />
+                </div>
+                <div class="">
+                  <label for="inputZip">Codigo Postal</label>
+                  <input
+                    type="text"
+                    class=""
+                    name="zipCode"
+                    value={zipCode}
+                    onChange={handleZipCode}
+                  />
+                </div>
+              </div>
+              <button type="submit">Guardar cambios</button>
+            </form>
+          </div>
         </div>
-    </div>
 
-</div>
+        <div id="ajustesCard" className="Column">
+          <div>
+            <h3 className="classh3">Información General</h3>
+          </div>
+          <div className="Informacion">
+            <p>Nombre completo: <b>{user.name}</b></p>
+            <p>Correo electronico: <b>{user.email}</b></p>
+            <p>DNI: <b>{user.dni}</b></p>
+            <p>Número de telefono: <b>{user.telefono}</b></p>
+          </div>
+        </div>
+      </div>
     </>
-
-
-    );
-    }
+  );
+}

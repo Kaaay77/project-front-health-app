@@ -1,0 +1,16 @@
+#page {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+.totalDiv {
+    border: red solid 1px;
+    align-items: center;
+    width: 50vh;
+}
+.contenedorP{
+    width: 140vh;
+    border: red solid 1px;
+    padding: 2vh;
+
+}

@@ -1,0 +1,43 @@
+#containerPerfil{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 5vh;
+}
+#ajustesCard{
+    width: 30%;
+    height: 35vh;
+    color: #adadad;
+    border-radius: 10px;
+    box-shadow:  0px 1px 2px #00c2ff;
+
+}
+
+
+#perfilCard{
+width: 30%;
+color: #adadad;
+border-radius: 10px;
+
+box-shadow:  0px 1px 2px #00c2ff;
+
+}
+
+
+
+.Column{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2vh;
+}
+.classh3 {
+    color: #00c2ff;
+    border-bottom: 1px solid #00c2ff;
+    box-shadow: 0 4px 2px -2px #00c2ff;
+   
+  }
+ .Informacion{
+     text-align: start;
+ }
