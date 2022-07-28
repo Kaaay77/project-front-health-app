@@ -93,8 +93,8 @@ export default function ShoppingCart() {
       {loading && <div className="load"><Spinner animation="border" variant="info" /></div>}
       <div id="page">
         <div className="totalDiv">
-          <h5>Productos en la cesta: {totalProducts}</h5>
-          <h7>Total:{total}€ </h7>
+          <h5>Productos en la cesta: <b>{totalProducts}</b></h5>
+          <h7>Total: <b>{total}</b>€ </h7>
           <form onSubmit={handleBuySubmit}>
             <button>Comprar</button>
           </form>
@@ -110,7 +110,7 @@ export default function ShoppingCart() {
                     <p>{test.description}</p>
                     <div>
                       <p>
-                        <b>{test.price}€ 🤑</b>
+                        <b>{test.price}€</b>
                       </p>
                       <form onSubmit={handleSubmit}>
                         <input
@@ -118,17 +118,18 @@ export default function ShoppingCart() {
                           name="idPruebas"
                           value={test._id}
                         />
-                        <button type="submit">Eliminar</button>
+                        <button id="btn-eliminar" type="submit">Eliminar</button>
                       </form>
                     </div>
                   </div>
                 );
               })}
               {(pruebas.length === 0) &&
-              <>
+              <div className="empty">
+              <h5>Cesta vacia...</h5>
 {               // eslint-disable-next-line
 }                <img src={travolta}/> 
-              </>
+              </div>
               }
           </div>
         </div>

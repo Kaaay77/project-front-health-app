@@ -94,13 +94,13 @@ return (
           </div>
 
           <div className="Column">
-            <Link to={""} style={{ textDecoration: "none" }}>
-              <span>Información del Perfil</span>
-            </Link>
-
-            <Link to={""} style={{ textDecoration: "none" }}>
+            <Link to={`/carrito`} style={{ textDecoration: "none" }}>
               <span>Carrito de la Compra</span>
             </Link>
+            <Link to="/pruebas" style={{ textDecoration: "none" }}>
+              <span>Pruebas</span>
+            </Link>
+
 
             {/* <a>                        
                         Historial

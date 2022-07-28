@@ -10,6 +10,7 @@ import Footer from "./components/Footer/Footer"
 import Profile from './pages/Perfil/Perfil';
 import Pruebas from "./pages/Pruebas/Pruebas"
 import ShoppingCart from "./pages/ShoppingCart/ShoppingCart"
+import AboutUs from "./pages/AboutUs/AboutUs";
 
 function App() {
 	return (
@@ -18,7 +19,7 @@ function App() {
 
 			<Routes>
 				<Route exact path="/" element={<HomePage/>} />
-				{/* <Route
+				<Route
 						exact
 						path="/sobre-nosotros"
 						element={
@@ -26,7 +27,7 @@ function App() {
 								<AboutUs />
 							</PrivateRoute>
 						}
-					/> */}
+					/>
 
 				<Route
 					exact

@@ -65,7 +65,7 @@ export default function Pruebas() {
                                 <h5>{test.title}</h5>
                                 <p>{test.description}</p>
                                 <div>
-                                <b>{test.price}€ 🤑</b>                                
+                                <b>{test.price}€</b>  
                                 <form onSubmit={handleSubmit}>
                                     <input type="hidden" name="idPruebas" value={test._id}  />
                                     <button type="submit">Añade al carrito</button>
