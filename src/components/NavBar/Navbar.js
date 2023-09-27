@@ -2,8 +2,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";                       // <== IMPORT 
 import { AuthContext } from "../../context/auth.context";  // <== IMPORT
 import logo from "../../images/logo-izerh-02.svg"
-// eslint-disable-next-line
-import NavBar from "./NavBar.css"
+import "./NavBar.css"
 import { FiShoppingCart } from 'react-icons/fi';
 import Badge from 'react-bootstrap/Badge';
 import { getCarritoService } from "../../services/carrito.services";
