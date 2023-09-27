@@ -44,7 +44,7 @@ export default function Footer() {
                 </div>
             </section>
 
-            <section>
+            <section className="section2">
             <img src={logo} alt="logo" className="imgFooter"/>
             <Social/>
             </section>

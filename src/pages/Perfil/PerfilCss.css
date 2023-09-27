@@ -1,24 +1,30 @@
 #containerPerfil{
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     flex-direction: row;
     padding: 5vh;
+    gap: 10vh;
 }
 #ajustesCard{
-    width: 30%;
+    width: 45vh;
     height: 35vh;
     color: #adadad;
     border-radius: 20px;
     box-shadow:  0px 1px 5px #00c2ff;
     padding-top: 1vh;
+    align-self: flex-start;
+    height: fit-content;
+  padding-bottom: 2vh;
 
 }
 
 
 #perfilCard{
     padding-top: 1vh;
-    width: 30%;
+    width: 45vh;
     color: #adadad;
     border-radius: 20px;
     box-shadow:  0px 1px 5px #00c2ff;
@@ -29,13 +35,14 @@
 }
 
 #ajustesGeneral{
-    width: 30%;
-    height: fit-content;
+  width: 45vh;
+  height: fit-content;
     color: #adadad;
     padding-top: 1vh;
     border-radius: 20px;
     box-shadow:  0px 1px 5px #00c2ff;
-   
+    align-self: flex-start;
+
 }
 
 .Column{
